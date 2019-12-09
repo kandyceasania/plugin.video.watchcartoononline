@@ -421,7 +421,10 @@ title  = None
 try:    mode = int(urllib.unquote_plus(params['mode']))
 except: pass
 
-try:    url = URL + urllib.unquote_plus(params['url'])
+try:
+    url = urllib.unquote_plus(params['url'])
+    if "www." not in url:
+        url = URL + url
 except: pass
 
 try:    title = urllib.unquote_plus(params['title'])
