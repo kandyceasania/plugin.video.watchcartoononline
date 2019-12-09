@@ -18,7 +18,7 @@
 #  http://www.gnu.org/copyleft/gpl.html
 #
 
-from bs4 import beautifulsoup
+from bs4 import BeautifulSoup
 import re
 import os
 import sys
@@ -27,7 +27,6 @@ import urllib2
 import wco_utils as utils
 import CommonFunctions
 common = CommonFunctions
-
 
 HOME = utils.ADDON.getAddonInfo('path')
 
