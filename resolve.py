@@ -49,7 +49,7 @@ def ResolveURL(url):
     request = urllib2.Request(url, None, user_agent)
     response = urllib2.urlopen(request)
     content = response.read()
-    html = bs4.BeautifulSoup(content)
+    html = BeautifulSoup(content)
 
     url = None
     msg = None
