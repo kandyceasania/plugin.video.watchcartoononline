@@ -31,7 +31,7 @@ common = CommonFunctions
 HOME = utils.ADDON.getAddonInfo('path')
 
 def ResolveURL(url):
-    #print url
+    print url
     #url = 'http://www.watchcartoononline.com/axis-powers-hetalia-episode-46-english-subbed' #vweed
     #url = 'http://www.watchcartoononline.com/halo-legends-episode-8-english-dubbed' #veoh
     #url = 'http://www.watchcartoononline.com/american-dad-season-1-episode-20-roger-n-me'#cizgifilmlerizle
@@ -59,11 +59,11 @@ def ResolveURL(url):
     tags = html.find_all('div', {'class': ['iltext']})
     #match = re.compile('<div class=\'postTabs_divs.+?>(.+?)</div>', re.DOTALL).findall(html)
     try:
-        for item in tags:
-            for module in MODULES:                        
+        for item in tags.descendants:
+            for module in MODULES:
                 links = MODULES[module].Resolve(item)
-                for link in links:                                   
-                    if link[0] != None:                       
+                for link in links:
+                    if link[0] != None:
                         resolved.append([module.replace('_', ''), link[0], link[1]])
     except Exception, e:
         pass
