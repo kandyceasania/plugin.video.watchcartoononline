@@ -48,7 +48,7 @@ def ResolveURL(url):
 
     request = urllib2.Request(url, None, user_agent)
     response = urllib2.urlopen(request)
-    context = response.read()
+    content = response.read()
     html = bs4.BeautifulSoup(content)
 
     url = None
