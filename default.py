@@ -1,6 +1,6 @@
 #
 #      Copyright (C) 2013 Sean Poyser
-#      Patched by Kodibear (kodibeardev@gmail.com)
+#      Patched by Asania
 #
 #  This Program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -32,6 +32,8 @@ import xbmcgui
 
 import resolve
 import wco_utils as utils
+
+import web_pdb; web_pdb.set_trace()
 
 # import pydevd
 # pydevd.settrace(stdoutToServer=True, stderrToServer=True)
@@ -419,7 +421,7 @@ title  = None
 try:    mode = int(urllib.unquote_plus(params['mode']))
 except: pass
 
-try:    url = urllib.unquote_plus(params['url'])
+try:    url = URL + urllib.unquote_plus(params['url'])
 except: pass
 
 try:    title = urllib.unquote_plus(params['title'])
