@@ -48,18 +48,18 @@ def ResolveURL(url):
 
     request = urllib2.Request(url, None, user_agent)
     response = urllib2.urlopen(request)
-    html = response.read()
-    #html = utils.getHTML(url)
-    #html = html.replace('"Click Here!!"</a></div>', '')
+    context = response.read()
+    html = bs4.BeautifulSoup(content)
 
     url = None
     msg = None
 
     resolved = []
 
-    match = re.compile('<div class=\'postTabs_divs.+?>(.+?)</div>', re.DOTALL).findall(html)
+    tags = html.find_all('div', {'class': ['iltext']})
+    #match = re.compile('<div class=\'postTabs_divs.+?>(.+?)</div>', re.DOTALL).findall(html)
     try:
-        for item in match:   
+        for item in tags:
             for module in MODULES:                        
                 links = MODULES[module].Resolve(item)
                 for link in links:                                   
